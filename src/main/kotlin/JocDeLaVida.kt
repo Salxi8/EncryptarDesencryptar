@@ -9,29 +9,29 @@ const val ALGORITHM = "RSA"
 fun main() {
 
     do {
-        var option = menu();
+        val option = menu();
 
-        var keys = generateKeys();
+        val keys = generateKeys();
         val publicMia = keys.first
         val private = keys.second
 
         if (option == 1) { // ENCRYPTAR
             print("Escribe la clave publica del otro Usuario para mandarle el mensage: ")
-            var publicaUsuario = readln()
-            var message = AskForMessage()
-            var palabraEncriptada = encrypt(message, publicaUsuario);
+            val publicaUsuario = readln()
+            val message = AskForMessage()
+            val palabraEncriptada = encrypt(message, publicaUsuario);
             println(palabraEncriptada)
 
 
         } else if (option == 2) {
             println("TU CLAVE PUBLICA ES: ${publicMia}")
             print("Escribe el mensaje cifrado: ")
-            var mensajeEncriptado = readln();
-            var palabraDesencriptada = decrypt(mensajeEncriptado, private);
+            val mensajeEncriptado = readln();
+            val palabraDesencriptada = decrypt(mensajeEncriptado, private);
             println(palabraDesencriptada);
         }
         println("PARA SALIR PULSE 0, PARA CONTINUAR CUALQUIER OTRO NUMERO: ")
-        var exit = readln().toIntOrNull() ?: 1
+        val exit = readln().toIntOrNull() ?: 1
 
     } while (exit != 0)
 
@@ -55,7 +55,7 @@ fun menu(): Int {
 
 fun AskForMessage(): String {
     print("Escriba el mensaje clave a enviar: ")
-    var message = readln();
+    val message = readln();
     return message
 }
 
